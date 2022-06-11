@@ -6430,6 +6430,9 @@ steps may throw an exception.
       : If [=/Type=](|input|) is Number
       ::
           1. If |input| is NaN then return invalid.
+
+          1. If |input| is -0 (negative zero), then return a new [=/key=] with [=key/type=] *number* and [=key/value=] 0 (zero).
+
           1. Otherwise, return a new [=/key=] with
               [=key/type=] *number* and [=key/value=]
               |input|.
@@ -6805,6 +6808,7 @@ For the revision history of the second edition, see [that document's Revision Hi
 * Specified [[#transaction-scheduling]] more precisely and disallow starting read/write transactions while read-only transactions with overlapping scope are running. ([Issue #253](https://github.com/w3c/IndexedDB/issues/253))
 * Added <a href="#accessibility">Accessibility considerations</a> section. ([Issue #327](https://github.com/w3c/IndexedDB/issues/327))
 * Used [[infra]]'s list sorting definition. ([Issue #346](https://github.com/w3c/IndexedDB/issues/346))
+* Added normalization for negative zero for keys. ([Issue #375](https://github.com/w3c/IndexedDB/issues/375))
 
 <!-- ============================================================ -->
 # Acknowledgements # {#acknowledgements}
